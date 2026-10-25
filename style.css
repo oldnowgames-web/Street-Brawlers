@@ -1,0 +1,29 @@
+/* Fontes locais (SIL Open Font License) - o jogo funciona offline */
+@font-face{font-family:'Press Start 2P';src:url('PressStart2P.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Chakra Petch';font-weight:700;src:url('ChakraPetch-Bold.ttf') format('truetype');font-display:swap}
+
+:root{--bg:#000;--fg:#e8ecf5;box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif}
+body{display:flex;align-items:center;justify-content:center;width:100vw;height:100vh;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+canvas#c{
+  display:block;
+  background:#000;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+  /* Preenche o máximo possível da tela mantendo a proporção 400:260 */
+  width:min(100vw, calc(100vh * 400 / 260));
+  height:min(100vh, calc(100vw * 260 / 400));
+  max-width:100%;
+  max-height:100%;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+}
+/* Em tela cheia, ocupa tudo */
+:fullscreen canvas#c,
+:-webkit-full-screen canvas#c{
+  width:min(100vw, calc(100vh * 400 / 260));
+  height:min(100vh, calc(100vw * 260 / 400));
+}
+html:fullscreen,html:-webkit-full-screen,
+body:fullscreen,body:-webkit-full-screen{background:#000}
